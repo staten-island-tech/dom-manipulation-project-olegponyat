@@ -1,7 +1,10 @@
-
 const DOMSelectors = {
-    button: document.getElementById("btn"),
-    text: document.querySelector("#text"),
-    empty: document.querySelector(".nothing")
+    form: document.querySelector('#form'),
+    firstName: document.querySelector('.first-name'),
+    h2s: document.querySelectorAll('h2')
 }
-console.log(DOMSelectors)
+DOMSelectors.form.addEventListener('submit', function(event){
+    event.preventDefault();
+    console.log(DOMSelectors.firstName.value);
+    DOMSelectors.h2s.forEach((el)=> el.textContent = DOMSelectors.firstName.value);
+});
