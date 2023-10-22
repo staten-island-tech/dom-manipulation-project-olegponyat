@@ -11,15 +11,14 @@ console.log(DOMSelectors.button)
 function addPostIt(){
     DOMSelectors.form.addEventListener('submit', function(event){
         event.preventDefault();
-        DOMSelectors.flexblox.insertAdjacentHTML("afterbegin", "<div class=post-it></div>")
-        
+        DOMSelectors.flexblox.insertAdjacentHTML("afterbegin", "<div class=post-it><div class=post-title><button class=remove></button></div></div>")
     });
-}
-function removePostIt(){
-    DOMSelectors.button.addEventListener('click', function(event){
-        event.preventDefault();
-        DOMSelectors.postit.remove();
-    })
+    function removePostIt(){
+        DOMSelectors.button.addEventListener('click', function(event){
+            event.preventDefault();
+            DOMSelectors.postit.remove();
+        });
+    }
+    removePostIt();
 }
 addPostIt();
-removePostIt();
