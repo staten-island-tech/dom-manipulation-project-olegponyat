@@ -1,6 +1,6 @@
 const DOMSelectors = {
     form: document.querySelector('#form-first'),
-    postit: document.querySelectorAll('.post-it'),
+    postit: document.querySelectorAll('#post-it'),
     flexblox: document.querySelector('.flexblox'),
     posttitle: document.querySelector('.post-title'),
     posttext: document.querySelector('.post-text'),
@@ -14,10 +14,13 @@ DOMSelectors.form.addEventListener('submit', function(event){
         event.preventDefault();
         DOMSelectors.flexblox.insertAdjacentHTML("beforeend", "<div class=post-it><div class=post-title><button class=remove></button></div></div>")
 
-
         const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-        document.backgroundColor = randomColor
+
+        const postIt = document.querySelector("post-it")
+
+        postIt.style.backgroundColor = randomColor;
         console.log(randomColor)
+        console.log(postIt)
     }
     function removePostIt(){
         const fart = document.querySelectorAll('.remove')
