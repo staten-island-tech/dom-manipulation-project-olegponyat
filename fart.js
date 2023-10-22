@@ -1,24 +1,38 @@
 const DOMSelectors = {
     form: document.querySelector('#form-first'),
-    postit: document.querySelector('.post-it'),
+    postit: document.querySelectorAll('.post-it'),
     flexblox: document.querySelector('.flexblox'),
     posttitle: document.querySelector('.post-title'),
     posttext: document.querySelector('.post-text'),
-    inputs: document.querySelectorAll('input'),
-    button: document.querySelector('.remove')
+    input1: document.querySelector('#input-1'),
+    input2: document.querySelector('#input-2'),
+    input3: document.querySelector('#input-3'),
 }
-console.log(DOMSelectors.button)
-function addPostIt(){
-    DOMSelectors.form.addEventListener('submit', function(event){
+
+DOMSelectors.form.addEventListener('submit', function(event){
+    function addPostIt(){
         event.preventDefault();
-        DOMSelectors.flexblox.insertAdjacentHTML("afterbegin", "<div class=post-it><div class=post-title><button class=remove></button></div></div>")
-    });
-    function removePostIt(){
-        DOMSelectors.button.addEventListener('click', function(event){
-            event.preventDefault();
-            DOMSelectors.postit.remove();
-        });
+        DOMSelectors.flexblox.insertAdjacentHTML("beforeend", "<div class=post-it><div class=post-title><button class=remove></button></div></div>")
+
+
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        document.backgroundColor = randomColor
+        console.log(randomColor)
     }
+    function removePostIt(){
+        const fart = document.querySelectorAll('.remove')
+        fart.forEach(farts => {
+        farts.addEventListener('click', function(e) {
+            e.currentTarget.parentNode.parentNode.remove();
+    })})}
+    /* function clearInputFields(){
+        DOMSelectors.input1.value = "";
+        DOMSelectors.input2.value = "";
+        DOMSelectors.input3.value = "";
+    } */
+    addPostIt();
     removePostIt();
-}
-addPostIt();
+    
+
+
+});
