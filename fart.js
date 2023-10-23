@@ -7,16 +7,11 @@ const DOMSelectors = {
     input1: document.getElementById('input-1'),
     input2: document.getElementById('input-2'),
     input3: document.getElementById('input-3'),
-    input4: document.getElementById('input-4')
 }
 DOMSelectors.form.addEventListener('submit', function(event){
-    function addPostIt(){
-        event.preventDefault();
-        DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-desc>${DOMSelectors.input2.value}</h2></div>`)
-        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-
-
-        newPostIt.style.backgroundColor = randomColor;
+    event.preventDefault();
+    function addPostIt(){    
+        DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value}></div>`)
     }
     function removePostIt(){
         const fart = document.querySelectorAll('.remove')
