@@ -8,7 +8,9 @@ const DOMSelectors = {
     input2: document.getElementById('input-2'),
     input3: document.getElementById('input-3'),
 }
+
 DOMSelectors.form.addEventListener('submit', function(event){
+    console.log(DOMSelectors.input3.value)
     event.preventDefault();
     function addPostIt(){    
         DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value}></div>`)

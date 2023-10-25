@@ -20,22 +20,27 @@ body{
     transition: .5s transform;
 }
 .post-it:hover{
-    transform: scale(1.1);
+    transform: scale(1);
 }
 .post-title{
-    font-size: 20px;
+    font-size: 2rem;
     height: 45px;
 }
 .post-text{
     margin-left: 2%;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    justify-content: center;
+    height: 50px;
+    width: auto;
 }
 #topbox{
     background-color: rgba(226, 224, 112, 0.658);
     height: 15%;
 }
 .post-img{
-    width: auto;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
     height: auto;
 }
 .inputs{
