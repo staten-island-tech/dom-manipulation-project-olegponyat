@@ -13,13 +13,13 @@ DOMSelectors.form.addEventListener('submit', function(event){
     console.log(DOMSelectors.input3.value)
     event.preventDefault();
     function addPostIt(){    
-        DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value}></div>`)
+        DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value} class=post-img></div>`)
     }
     function removePostIt(){
         const fart = document.querySelectorAll('.remove')
         fart.forEach(farts => {
-        farts.addEventListener('click', function(e) {
-            e.currentTarget.parentNode.parentNode.remove();
+            farts.addEventListener('click', function(e) {
+                e.currentTarget.parentNode.parentNode.remove();
     })})}
     function clearInputFields(){
         DOMSelectors.input1.value = "";
