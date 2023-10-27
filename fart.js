@@ -10,15 +10,26 @@ const DOMSelectors = {
 }
 
 DOMSelectors.form.addEventListener('submit', function(event){
-    console.log(DOMSelectors.input3.value)
     event.preventDefault();
     function randombgColor(){
-        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-        return randomColor
+        const R = Math.floor(Math.random() * 256);
+        const G = Math.floor(Math.random() * 256);
+        const B = Math.floor(Math.random() * 256);
+        console.log(R,G,B)
+        return { R, G, B };
+    }
+    randombgColor();
+    function changeBackground(colorObject, card){
+        document.body.style.backgroundColor = `rgba(${colorObject.R}, ${colorObject.G}, ${colorObject.B}, .1)`
     }
     function addPostIt(){    
         DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value} class=post-img></div>`)
-        DOMSelectors.postit.style.bgColor = randombgColor();
+        const grabCards = document.querySelectorAll('.post-it')
+        changeBackground(randombgColor(),grabCards[0]);
+        console.log(grabCards[0]);
+        //grab all cards cards[0] nodelist of cards
+        //array of cards, get first or last card and change background color
+        //changebackground color(array[leng -1])
     }
     function removePostIt(){
         const fart = document.querySelectorAll('.remove')
@@ -34,6 +45,4 @@ DOMSelectors.form.addEventListener('submit', function(event){
     addPostIt();
     removePostIt();
     clearInputFields();
-
-
 });
