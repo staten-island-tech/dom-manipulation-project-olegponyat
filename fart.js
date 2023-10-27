@@ -12,8 +12,13 @@ const DOMSelectors = {
 DOMSelectors.form.addEventListener('submit', function(event){
     console.log(DOMSelectors.input3.value)
     event.preventDefault();
+    function randombgColor(){
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        return randomColor
+    }
     function addPostIt(){    
         DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value} class=post-img></div>`)
+        DOMSelectors.postit.style.bgColor = randombgColor();
     }
     function removePostIt(){
         const fart = document.querySelectorAll('.remove')
