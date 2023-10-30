@@ -15,33 +15,35 @@ DOMSelectors.form.addEventListener('submit', function(event){
         const R = Math.floor(Math.random() * 256);
         const G = Math.floor(Math.random() * 256);
         const B = Math.floor(Math.random() * 256);
-        
-        return { R, G, B };
+        const A = Math.random()
+        return { R, G, B, A };
     }
-    randombgColor();
     function changeBackground(colorObject, card, posttitle, farting){
-        const getColor = `rgba(${colorObject.R}, ${colorObject.G}, ${colorObject.B}, .9)`
-        if (colorObject.R < 0, colorObject.G < 0, colorObject.B < 80){
+        const getColor = `rgba(${colorObject.R}, ${colorObject.G}, ${colorObject.B}, ${colorObject.A})`
+        if (colorObject.R < 70, colorObject.G < 70, colorObject.B < 70){
             farting.style.color = 'white'
             posttitle.style.color = 'white'
         }
-        else{
+        else if (colorObject.R >= 70, colorObject.G >= 70, colorObject.B >= 70){
             farting.style.color = 'black'
             posttitle.style.color = 'black'
         };
         card.style.backgroundColor = getColor
         posttitle.style.backgroundColor = getColor
-        
     }
     function addPostIt(){   
         DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value} class=post-img></div>`)
-        const grabCards = document.querySelectorAll('.post-it')
-        const grabTitles = document.querySelectorAll('.post-title')
-        const getText = document.querySelectorAll('.post-text')
-        const poopfart = grabCards[grabCards.length-1]
-        const fartpoop = grabTitles[grabTitles.length-1]
-        const poopyfart = getText[getText.length-1]
-        changeBackground(randombgColor(),poopfart,fartpoop, poopyfart)
+        const innerSelectors = {
+            grabCards: document.querySelectorAll('.post-it'),
+            grabTitles: document.querySelectorAll('.post-title'),
+            getText: document.querySelectorAll('.post-text'),
+        }
+        const getLength = {
+            poopfart: innerSelectors.grabCards[innerSelectors.grabCards.length-1],
+            fartpoop: innerSelectors.grabTitles[innerSelectors.grabTitles.length-1],
+            poopyfart: innerSelectors.getText[innerSelectors.getText.length-1],
+        }
+        changeBackground(randombgColor(), getLength.poopfart, getLength.fartpoop, getLength.poopyfart)
     }
     function removePostIt(){
         const fart = document.querySelectorAll('.remove')
