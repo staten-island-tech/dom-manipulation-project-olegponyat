@@ -15,21 +15,33 @@ DOMSelectors.form.addEventListener('submit', function(event){
         const R = Math.floor(Math.random() * 256);
         const G = Math.floor(Math.random() * 256);
         const B = Math.floor(Math.random() * 256);
-        console.log(R,G,B)
+        
         return { R, G, B };
     }
     randombgColor();
-    function changeBackground(colorObject, card){
-        document.body.style.backgroundColor = `rgba(${colorObject.R}, ${colorObject.G}, ${colorObject.B}, .1)`
+    function changeBackground(colorObject, card, posttitle, farting){
+        const getColor = `rgba(${colorObject.R}, ${colorObject.G}, ${colorObject.B}, .9)`
+        if (colorObject.R < 0, colorObject.G < 0, colorObject.B < 80){
+            farting.style.color = 'white'
+            posttitle.style.color = 'white'
+        }
+        else{
+            farting.style.color = 'black'
+            posttitle.style.color = 'black'
+        };
+        card.style.backgroundColor = getColor
+        posttitle.style.backgroundColor = getColor
+        
     }
-    function addPostIt(){    
+    function addPostIt(){   
         DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value} class=post-img></div>`)
         const grabCards = document.querySelectorAll('.post-it')
-        changeBackground(randombgColor(),grabCards[0]);
-        console.log(grabCards[0]);
-        //grab all cards cards[0] nodelist of cards
-        //array of cards, get first or last card and change background color
-        //changebackground color(array[leng -1])
+        const grabTitles = document.querySelectorAll('.post-title')
+        const getText = document.querySelectorAll('.post-text')
+        const poopfart = grabCards[grabCards.length-1]
+        const fartpoop = grabTitles[grabTitles.length-1]
+        const poopyfart = getText[getText.length-1]
+        changeBackground(randombgColor(),poopfart,fartpoop, poopyfart)
     }
     function removePostIt(){
         const fart = document.querySelectorAll('.remove')
@@ -44,5 +56,5 @@ DOMSelectors.form.addEventListener('submit', function(event){
     }
     addPostIt();
     removePostIt();
-    clearInputFields();
+    clearInputFields();    
 });
