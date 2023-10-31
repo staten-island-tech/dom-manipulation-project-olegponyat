@@ -18,7 +18,7 @@ DOMSelectors.form.addEventListener('submit', function(event){
         return { R, G, B, A };
     }
     function changeBackground(colorObject, card, posttitle, farting){
-        const getColor = `rgba(${colorObject.R}, ${colorObject.G}, ${colorObject.B}, ${colorObject.A})`
+        const getColor = `rgba(${colorObject.R}, ${colorObject.G}, ${colorObject.B}, .4)`
         if (colorObject.R < 70, colorObject.G < 70, colorObject.B < 70){
             farting.style.color = 'white'
             posttitle.style.color = 'white'
