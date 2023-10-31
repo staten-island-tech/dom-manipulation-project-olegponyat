@@ -8,7 +8,6 @@ const DOMSelectors = {
     input2: document.getElementById('input-2'),
     input3: document.getElementById('input-3'),
 }
-
 DOMSelectors.form.addEventListener('submit', function(event){
     event.preventDefault();
     function randombgColor(){
