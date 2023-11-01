@@ -31,7 +31,8 @@ DOMSelectors.form.addEventListener('submit', function(event){
         card.style.backgroundColor = getColor
         posttitle.style.backgroundColor = getColor
     }
-    function addPostIt(){   
+    console.log(changeBackground(randombgColor()))
+    /* function addPostIt(){   
         DOMSelectors.flexblox.insertAdjacentHTML("beforeend", `<div class=post-it><div class=post-title id=topbox>${DOMSelectors.input1.value}<button class=remove></button></div><h2 class=post-text>${DOMSelectors.input2.value}</h2><img src=${DOMSelectors.input3.value} class=post-img></div>`)
         const innerSelectors = {
             grabCards: document.querySelectorAll('.post-it'),
@@ -55,8 +56,8 @@ DOMSelectors.form.addEventListener('submit', function(event){
         //DOMSelectors.input1.value = "";
         // DOMSelectors.input2.value = "";
         DOMSelectors.input3.value = "";
-    }
+    } */
     addPostIt();
-    removePostIt();
-    clearInputFields();    
+    /* removePostIt();
+    clearInputFields();  */   
 });
