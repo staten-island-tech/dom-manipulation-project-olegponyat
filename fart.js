@@ -51,8 +51,8 @@ DOMSelectors.form.addEventListener('submit', function(event){
                 e.currentTarget.parentNode.parentNode.remove();
     })})}
     function clearInputFields(){
-        //DOMSelectors.input1.value = "";
-        // DOMSelectors.input2.value = "";
+        DOMSelectors.input1.value = "";
+        DOMSelectors.input2.value = "";
         DOMSelectors.input3.value = "";
     }
     addPostIt();
